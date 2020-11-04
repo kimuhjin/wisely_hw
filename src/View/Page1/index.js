@@ -13,7 +13,6 @@ function Page1() {
     const history = useHistory();
     const dispatch = useDispatch();
     const ClickBtn = (e)=>{
-        console.log(e.target.value)
         const getItem = Dummy.filter((data)=>Number(data.id)===Number(e.target.value))
         if(getItem[0].shaver){
             setPopupOpen(!PopupOpen)

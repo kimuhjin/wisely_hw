@@ -2,20 +2,22 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { useHistory } from "react-router-dom";
 
-function OrderDetail() {
+function OrderDetail({SelectedItem}) {
     const history = useHistory();
 const onOrderFunc = ()=>{
 history.push("/Page3");
 }
+const PriceAmount = SelectedItem.reduce((prev, curr) => prev + (curr.amount*curr.price), 0);
     return (
         <Fragment>
         <PaymentInfo>
         <ShippingInfo>배송비
-        <div>무료</div>
+        {PriceAmount>=15000 && (<div>무료</div>)}
+        {PriceAmount<15000 && (<div>3,500원</div>)}
         </ShippingInfo>
         <PriceInfo>
         최종 결제 금액
-        <div>8,900원</div>
+        <div>{PriceAmount>=15000 ? PriceAmount.toLocaleString():(PriceAmount+3500).toLocaleString()}원</div>
         </PriceInfo>
         </PaymentInfo>
         <ConfirmBtn onClick={onOrderFunc}>주문하기</ConfirmBtn>

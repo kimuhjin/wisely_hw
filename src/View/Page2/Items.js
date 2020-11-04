@@ -4,7 +4,7 @@ import closeBtn from "../../Icon/closeBtn.png"
 import plusBtn from "../../Icon/plusBtn.png"
 import minusBtn from "../../Icon/minusBtn.png"
 import { useSelector,useDispatch } from "react-redux";
-import {ItemAdd} from "../../_actions/item_actions";
+import {ItemEdit} from "../../_actions/item_actions";
 function Items({data,onDelFunc}) {
     const [ProductAmount, setProductAmount] = useState(1)
     const dispatch = useDispatch();
@@ -15,21 +15,19 @@ function Items({data,onDelFunc}) {
             if(Number(data_s.id) === Number(e.target.value)){
                 data_s.amount = ProductAmount+1
             }})
-            console.log(SelectedItem)
             const setData = new Set([...SelectedItem])
-            console.log(setData)
-            // dispatch(ItemAdd(setData));
+            dispatch(ItemEdit([...setData]));
     }
     const DelItemFunc = (e)=>{
         if(ProductAmount>1){
             setProductAmount(ProductAmount-1)
-            const EditedAmountItem = SelectedItem.map((data_s)=>{
+            SelectedItem.map((data_s)=>{
                 if(Number(data_s.id) === Number(e.target.value)){
                     data_s.amount = ProductAmount-1
                 }})
-                // dispatch(ItemAdd(EditedAmountItem));
+                const setData = new Set([...SelectedItem])
+                dispatch(ItemEdit([...setData]));
         }
-    
     }
     return (
         <Fragment>

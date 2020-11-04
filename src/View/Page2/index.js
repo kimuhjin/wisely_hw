@@ -1,4 +1,4 @@
-import React, { Fragment,useState } from 'react'
+import React, { Fragment} from 'react'
 import { useHistory } from "react-router-dom";
 import styled from 'styled-components'
 
@@ -10,7 +10,6 @@ import {ItemDel} from "../../_actions/item_actions";
 
 import Items from './Items';
 function Page2() {
-    
     const history = useHistory();
     const dispatch = useDispatch();
     const SelectedItem = useSelector((state) => state.item);
@@ -19,7 +18,6 @@ function Page2() {
             history.push("/");
         }
         const delItem = SelectedItem.filter((data)=>Number(data.id)!==Number(e.target.value))
-        console.log(delItem)
         dispatch(ItemDel(delItem));
     }
 
@@ -32,12 +30,12 @@ function Page2() {
     })
     
     return (
-        <Fragment>
-        <Header/>
+        <Fragment >
+        <Header />
         <Layout>
         {RenderItem}
-        <OrderDetail/>
-        <AdditionalProduct SelectedItem={SelectedItem}/>
+        <OrderDetail SelectedItem={SelectedItem}/>
+        <AdditionalProduct SelectedItem={SelectedItem} />
         </Layout>
         </Fragment>
     )

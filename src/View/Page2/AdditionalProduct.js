@@ -19,7 +19,6 @@ function AdditionalProduct({SelectedItem}) {
             setShaver(getItem)
         }else{
             const getItem = Dummy.filter((data)=>Number(data.id)===Number(e.target.value))
-            console.log(SelectedItem)
             dispatch(ItemAdd(getItem));
         }
         

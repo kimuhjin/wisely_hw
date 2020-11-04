@@ -7,13 +7,14 @@ import Page2 from "./View/Page2/"
 import Page3 from "./View/Page3/"
 import Page4 from "./View/Page4/"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import ScrollToTop from './ScrollToTop';
 function App() {
   return (
    <Fragment>
    <Layout>
    <PageViewLayout>
    <BrowserRouter basename={process.env.PUBLIC_URL}>
-   
+   <ScrollToTop/>
       <Switch>
         <Route exact path="/" component={Page1} />
         <Route exact path="/Page2" component={Page2} />

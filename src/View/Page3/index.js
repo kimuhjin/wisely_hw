@@ -9,19 +9,21 @@ import TwoDayOnce_dis from "../../Icon/2~3일에 한 번-1.png"
 import ShopHeader from '../ShopHeader'
 import HeaderSlide from './HeaderSlide'
 import CalenderModal from './CalenderModal'
-
+import { useSelector,useDispatch } from "react-redux";
 function Page3() {
 const [SelectPeriod, setSelectPeriod] = useState("")
 const [SlideOpen, setSlideOpen] = useState(false)
 const [HeaderSlideOpen, setHeaderSlideOpen] = useState(false)
 const [CalenderOpen, setCalenderOpen] = useState(false)
+
+const SelectedItem = useSelector((state) => state.item);
+
 const HeaderSlideControl = ()=>{
     setHeaderSlideOpen(!HeaderSlideOpen)
 }
-console.log(HeaderSlideOpen)
     return (
         <Fragment>
-        <ShopHeader HeaderSlideControl={HeaderSlideControl}/>
+        <ShopHeader HeaderSlideControl={HeaderSlideControl} SelectedItem={SelectedItem}/>
         <Layout>
         <Title>배송 주기를 선택해주세요</Title>
         <PeriodSelectorBox onClick={()=>setSlideOpen(!SlideOpen)}>
@@ -81,7 +83,7 @@ console.log(HeaderSlideOpen)
             <BackGround onClick={HeaderSlideControl}/>
             </BackGroundLayer>
             <ShopHeader HeaderSlideControl={HeaderSlideControl}/>
-            <HeaderSlide HeaderSlideOpen={HeaderSlideOpen} />
+            <HeaderSlide HeaderSlideOpen={HeaderSlideOpen} SelectedItem={SelectedItem}/>
             </Fragment>
             <Fragment>
             <BackGroundLayer_Calender CalenderOpen={CalenderOpen}>

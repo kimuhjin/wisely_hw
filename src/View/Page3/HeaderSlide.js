@@ -3,33 +3,49 @@ import styled,{keyframes} from 'styled-components'
 import sampleImage from "../../Icon/면도기세트_네이비.png"
 
 
-function HeaderSlide({HeaderSlideOpen}) {
-    return (
-        <Fragment>
-        <Layout HeaderSlideOpen={HeaderSlideOpen}>
-        <Item>
-        <ThumbImage/>
+function HeaderSlide({HeaderSlideOpen,SelectedItem}) {
+    const PriceAmount = SelectedItem.reduce((prev, curr) => prev + (curr.amount*curr.price), 0);
+    const RenderItem = SelectedItem.map((data,index)=>{
+        return(
+            <Fragment key={index}>
+            <Item>
+        <ThumbImage src={data.img_src} />
         <ItemDisc>
-        <div className="title">면도기 세트</div>
-        <div className="disc">면도기 핸들+면도날 2개입</div>
+        <div className="title">{data.title} -&nbsp;<div className="amount">{data.amount}개</div></div>
+        <div className="discArea">
+        {data.color &&(
+            <Fragment>
+        <div className="color">{data.color}</div> &nbsp;
+        </Fragment>
+        )}
+        <div className="disc">{data.disc}</div>
+        </div>
         <PriceArea>
         <div className="period">이번만 구매</div>
-        <div className="price">8,900원</div>
+        <div className="price">{(data.price*data.amount).toLocaleString()}원</div>
         </PriceArea>
         </ItemDisc>
         </Item>
+            </Fragment>
+        )
+    })
+    return (
+        <Fragment>
+        <Layout HeaderSlideOpen={HeaderSlideOpen}>
+        {RenderItem}
         <PriceDetailArea>
         <div className="priceArea">
         <div className="priceTitle">상품금액</div>
-        <div className="price">13,500원</div>
+        <div className="price">{PriceAmount.toLocaleString()}원</div>
         </div>
         <div className="shipArea">
         <div className="shipTitle">배송비</div>
-        <div className="ship">무료</div>
+        {PriceAmount>=15000 && (<div className="ship">무료</div>)}
+        {PriceAmount<15000 && (<div className="ship">3,500원</div>)}
         </div>
         <div className="totalArea">
         <div className="totalTitle">총 결제 예정 금액</div>
-        <div className="total">13,500원</div>
+        <div className="total">{PriceAmount>=15000 ? PriceAmount.toLocaleString():(PriceAmount+3500).toLocaleString()}원</div>
         </div>
         </PriceDetailArea>
         </Layout>
@@ -85,7 +101,7 @@ const ThumbImage = styled.div`
 margin-left:8px;
 min-width:84px;
 min-height:84px;
-background-image:url(${sampleImage});
+background-image:url(${props=>props.src});
 background-repeat:no-repeat;
 background-size:100% auto;
 background-position:center;
@@ -119,14 +135,36 @@ line-height: 16px;
 letter-spacing: -0.06em;
 text-align: left;
 .title{
+    width:100%;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
     font-size: 16px;
     color:#3A3A3A;
     margin-bottom:8px;
+    .amount{
+        color: #0055B8;
+    }
+}
+.discArea{
+    width:100%;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    margin-bottom:13px;
 }
 .disc{
     font-size:12px;
     color:#979797;
-    margin-bottom:13px;
+
+}
+.color{
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 17px;
+letter-spacing: -0.04em;
+color:#122141;
 }
 .period{
     font-size:14px;

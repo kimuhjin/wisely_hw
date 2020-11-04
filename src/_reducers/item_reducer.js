@@ -1,6 +1,7 @@
 import {
   ITEM_ADD,
-  ITEM_DEL
+  ITEM_DEL,
+  ITEM_EDIT
 } from "../_actions/types";
 const initialState = [];
 export default function (state = initialState, action) {
@@ -12,7 +13,11 @@ export default function (state = initialState, action) {
 
     case  ITEM_DEL:
       return action.payload
-    default:
+      
+    case  ITEM_EDIT:
+      return action.payload
+    
+      default:
       return state;
   }
 }

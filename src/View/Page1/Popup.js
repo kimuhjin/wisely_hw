@@ -10,11 +10,9 @@ import {ItemAdd} from "../../_actions/item_actions";
 function Popup({PopupOpen,Shaver,setPopupOpen}) {
     const [colorSelect, setColorSelect] = useState("#1e314a")
     const history = useHistory();
-    const location= useLocation()
-    
+    const location= useLocation()    
     const dispatch = useDispatch();
-    console.log(colorSelect)
-    console.log(Shaver)
+
     const onSubmitFunc = ()=>{
       if(colorSelect==="#1e314a"){
         Shaver[0].color = "네이비"
@@ -179,7 +177,7 @@ display:flex;
 flex-direction:column;
 justify-content:flex-start;
 align-items:flex-start;
-position:absolute;
+position:fixed;
 bottom:0px;
 left:0px;
 z-index:9999;
