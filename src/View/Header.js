@@ -14,14 +14,19 @@ function Header() {
 export default Header
 const Layout = styled.div`
 position:fixed;
+z-index:9999;
+margin: 0 auto;
 top:0;
-left:0;
+left: 0;
+right: 0;
 display:flex;
 justify-content:center;
 align-items:center;
-width:100%;
+max-width:414px;
 height:60px;
 border-bottom:1px solid #f5f5f5;
+box-sizing:border-box;
+background-color:#fff;
 `
 const LogoIcon = styled.div`
 width:115.26px;

@@ -1,15 +1,14 @@
-import React, { Fragment,useState } from 'react'
-import styled,{ keyframes }from "styled-components"
+import React, { Fragment } from 'react'
+import styled from 'styled-components'
 import sampleImage from "../../Icon/sample.png"
 import addBtnImage from "../../Icon/addBtn.png"
-import Popup from './Popup'
-import { useHistory } from "react-router-dom";
-function Page1() {
-    const [PopupOpen, setPopupOpen] = useState(false)
+function AdditionalProduct() {
     return (
         <Fragment>
-        <Disc>장바구니가 비어있습니다<br/>상품을 추가해주세요</Disc>
-        <Item onClick={()=>setPopupOpen(!PopupOpen)}>
+        <Layout>
+        <Title>함께하면 더 현명한 습관</Title>
+        <ItemContainer>
+        <Item >
         <ThumbImage/>
         <ItemDisc>
         <div className="title">면도기 세트</div>
@@ -21,49 +20,46 @@ function Page1() {
         </ItemDisc>
         <AddBtn />
         </Item>
-            <Fragment>
-            <BackGroundLayer PopupOpen={PopupOpen}>
-            <BackGround onClick={()=>setPopupOpen(!PopupOpen)}/>
-            </BackGroundLayer>
-            <Popup PopupOpen={PopupOpen}/>
-            </Fragment>
+        <Item >
+        <ThumbImage/>
+        <ItemDisc>
+        <div className="title">면도기 세트</div>
+        <div className="disc">면도기 핸들+면도날 2개입</div>
+        <PriceArea>
+        <div className="price">8,900원</div>
+        <FreeShipping>무료배송</FreeShipping>
+        </PriceArea>
+        </ItemDisc>
+        <AddBtn />
+        </Item>
+        </ItemContainer>
+        </Layout>
         </Fragment>
+
+
     )
 }
 
-export default Page1
-const FadeIn = () => keyframes`
-from {
-    opacity:0
-}
-to {
-    opacity:0.5
-}
-`;
-const Fadeout = () => keyframes`
-from {
-    opacity:0.5
-}
-to {
-
-    opacity:0
-}
-`;
-const BackGroundLayer = styled.div`
-position:absolute;
-top:0px;
-left:0px;
+export default AdditionalProduct
+const ItemContainer = styled.div`
+margin-top:18px;
 width:100%;
-height:100%;
-opacity:0.5;
-background-color: #808080;
-visibility: ${props => props.PopupOpen ? 'visible' : 'hidden'};
-animation: ${props => props.PopupOpen ? FadeIn : Fadeout} 0.5s linear;
-transition: visibility 0.5s linear;
 `
-const BackGround = styled.div`
-width:100%;
-height:100%;
+const Item = styled.div`
+outline:none;
+cursor: pointer;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-family: SpoqaHanSans;
+margin-bottom:12px;
+height: 108px;
+width: 328px;
+padding:12px 16px 12px 22px;
+box-sizing:border-box;
+border-radius: 4px;
+border:1px solid #FCFCFC;
+box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08);
 `
 const PriceArea = styled.div`
 width:100%;
@@ -130,30 +126,16 @@ background-repeat:no-repeat;
 background-size:100% auto;
 background-position:center;
 `
-const Disc = styled.div`
-margin:118px 0px 58px 0px;
-font-family: SpoqaHanSans;
+const Layout = styled.div`
+margin-top:46px;
+`
+const Title = styled.div`
 font-size: 18px;
 font-style: normal;
-font-weight: 300;
+font-weight: 400;
 line-height: 23px;
 letter-spacing: -0.06em;
 text-align: center;
+width:100%;
+color: #0F5783;
 `
-const Item = styled.div`
-outline:none;
-cursor: pointer;
-display:flex;
-justify-content:space-between;
-align-items:center;
-font-family: SpoqaHanSans;
-margin-bottom:12px;
-height: 108px;
-width: 100%;
-padding:12px 16px 12px 22px;
-box-sizing:border-box;
-border-radius: 4px;
-border:1px solid #FCFCFC;
-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08);
-`
-

@@ -1,11 +1,16 @@
 import React, { Fragment,useState } from 'react'
 import styled, { keyframes } from "styled-components"
+import { useHistory } from "react-router-dom";
 import shaver_navy from "../../Icon/shaver_navy.png"
 import shaver_blue from "../../Icon/shaver_blue.png"
 import shaver_gray from "../../Icon/shaver_gray.png"
+
 function Popup({PopupOpen}) {
     const [colorSelect, setColorSelect] = useState("#1e314a")
-    console.log(PopupOpen)
+    const history = useHistory();
+    const onSubmitFunc = ()=>{
+      history.push("/Cart");
+  }
     return (
         <Fragment>
         <PopupLayout PopupOpen={PopupOpen}>
@@ -28,7 +33,7 @@ color={colorSelect} >
 {colorSelect==="#1888d9" &&(<ChooseColorTitle color="#3A81C1">사파이어 블루</ChooseColorTitle>)}
 {colorSelect==="#cecece" &&(<ChooseColorTitle color="#858585">슬레이트 그레이</ChooseColorTitle>)}
 
-<ConfirmBtn>선택하기</ConfirmBtn>
+<ConfirmBtn onClick={onSubmitFunc}>선택하기</ConfirmBtn>
         </PopupLayout>
         </Fragment>
     )
