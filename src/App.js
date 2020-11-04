@@ -5,6 +5,7 @@ import './App.css';
 import Page1 from "./View/Page1/"
 import Page2 from "./View/Page2/"
 import Page3 from "./View/Page3/"
+import Page4 from "./View/Page4/"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/" component={Page1} />
         <Route exact path="/Page2" component={Page2} />
         <Route exact path="/Page3" component={Page3} />
+        <Route exact path="/Page4" component={Page4} />
       </Switch>
     </BrowserRouter>
    </PageViewLayout>

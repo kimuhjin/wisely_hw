@@ -3,12 +3,12 @@ import styled from "styled-components"
 import headerIcon from "../Icon/headerIcon.png"
 import shoppingCart from "../Icon/shopping_cart.png"
 import downBtnIcon from "../Icon/downBtn.png"
-function ShopHeader() {
+function ShopHeader({HeaderSlideControl}) {
     return (
         <Fragment>
         <Layout>
         <LogoIcon/>
-        <ShoppingCartArea>
+        <ShoppingCartArea onClick={HeaderSlideControl}>
         <ShoppingCartIcon/>
         <PriceArea>
         <div className="won">₩</div>
@@ -23,6 +23,7 @@ function ShopHeader() {
 
 export default ShopHeader
 const ShoppingCartArea = styled.div`
+cursor: pointer;
 display:flex;
 justify-content:center;
 align-items:center;

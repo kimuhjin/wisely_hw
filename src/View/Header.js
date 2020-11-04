@@ -17,7 +17,7 @@ export default Header
 
 const Layout = styled.div`
 position:fixed;
-z-index:9999;
+z-index:9990;
 margin: 0 auto;
 top:0;
 left: 0;

@@ -7,16 +7,24 @@ import DayMuch_dis from "../../Icon/하루에 한 번-1.png
 import TwoDayOnce from "../../Icon/2~3일에 한 번.png"
 import TwoDayOnce_dis from "../../Icon/2~3일에 한 번-1.png"
 import ShopHeader from '../ShopHeader'
+import HeaderSlide from './HeaderSlide'
+import CalenderModal from './CalenderModal'
 
 function Page3() {
 const [SelectPeriod, setSelectPeriod] = useState("")
 const [SlideOpen, setSlideOpen] = useState(false)
+const [HeaderSlideOpen, setHeaderSlideOpen] = useState(false)
+const [CalenderOpen, setCalenderOpen] = useState(false)
+const HeaderSlideControl = ()=>{
+    setHeaderSlideOpen(!HeaderSlideOpen)
+}
+console.log(HeaderSlideOpen)
     return (
         <Fragment>
-        <ShopHeader/>
+        <ShopHeader HeaderSlideControl={HeaderSlideControl}/>
         <Layout>
         <Title>배송 주기를 선택해주세요</Title>
-        <PeriodSelectorBox>
+        <PeriodSelectorBox onClick={()=>setSlideOpen(!SlideOpen)}>
         <div className="title">리필면도날 주기</div>
         <RightSide>
         <BestText>
@@ -47,29 +55,167 @@ const [SlideOpen, setSlideOpen] = useState(false)
         <div className="text">16주에 한 번</div>
         </PeriodDetailSelectorBox>
         </PeriPeriodSelectArea>
-        <PeriodSelectorBox>
+        <PeriodSelectorBox onClick={()=>setSlideOpen(!SlideOpen)}>
         <div className="title">리필면도날 주기</div>
         <RightSide>
         <BestText>
         <div className="text">BEST</div></BestText>
         <div className="period">8주에 한 번</div>
-        <DownBtn onClick={()=>setSlideOpen(!SlideOpen)}/>
+        <DownBtn />
         </RightSide>
         </PeriodSelectorBox>
-        <ConfirmBtn >다음</ConfirmBtn>
+        <ConfirmBtn onClick={()=>setCalenderOpen(!CalenderOpen)}>다음</ConfirmBtn>
         </Layout>
-        <DateInfo></DateInfo>
+        <DateInfo>
+        <div className="next">
+        <div className="nextTitle">다음 결제 예정일</div>
+        <div className="nextDate">12월 31일 월요일</div>
+        </div>
+        <div className="after">
+        <div className="afterTitle">이후 결제 예정일</div>
+        <div className="afterDate">3월 31일 수요일</div>
+        </div>
+        </DateInfo>
+        <Fragment>
+            <BackGroundLayer HeaderSlideOpen={HeaderSlideOpen}>
+            <BackGround onClick={HeaderSlideControl}/>
+            </BackGroundLayer>
+            <ShopHeader HeaderSlideControl={HeaderSlideControl}/>
+            <HeaderSlide HeaderSlideOpen={HeaderSlideOpen} />
+            </Fragment>
+            <Fragment>
+            <BackGroundLayer_Calender CalenderOpen={CalenderOpen}>
+            <BackGround onClick={()=>setCalenderOpen(!CalenderOpen)}/>
+            </BackGroundLayer_Calender>
+            <CalenderModal CalenderOpen={CalenderOpen}/>
+            </Fragment>
         </Fragment>
     )
 }
 
 export default Page3
+const HeaderFadeIn = () => keyframes`
+from {
+    opacity:0
+}
+to {
+    opacity:0.5
+}
+`;
+const HeaderFadeout = () => keyframes`
+from {
+    opacity:0.5
+}
+to {
+    opacity:0
+}
+`;
+const BackGroundLayer = styled.div`
+position:absolute;
+top:0px;
+left:0px;
+width:100%;
+height:100%;
+opacity:0.5;
+background-color: #808080;
+visibility: ${props => props.HeaderSlideOpen ? 'visible' : 'hidden'};
+animation: ${props => props.HeaderSlideOpen ? HeaderFadeIn : HeaderFadeout} 0.5s linear;
+transition: visibility 0.5s linear;
+`
+const BackGroundLayer_Calender = styled.div`
+position:absolute;
+top:0px;
+left:0px;
+width:100%;
+height:100%;
+opacity:0.5;
+background-color: #808080;
+visibility: ${props => props.CalenderOpen ? 'visible' : 'hidden'};
+animation: ${props => props.CalenderOpen ? HeaderFadeIn : HeaderFadeout} 0.5s linear;
+transition: visibility 0.5s linear;
+`
+const BackGround = styled.div`
+width:100%;
+height:100%;
+`
+const FadeIn = () => keyframes`
+from {
+    opacity:0
+
+}
+to {
+    opacity:1
+}
+`;
+const Fadeout = () => keyframes`
+from {
+    opacity:1
+    transform:translateY(0px);
+}
+to {
+    transform:translateY(-500px);
+    opacity:0
+}
+`;
 const DateInfo = styled.div`
 margin-top:39px;
 width:100%;
 padding:23px 26px;
 box-sizing:border-box;
 border-top:1px solid #EFEFEF;
+.next{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:7px;
+.nextTitle{
+font-size: 14px;
+font-style: normal;
+font-weight: 300;
+line-height: 20px;
+letter-spacing: -0.06em;
+text-align: left;
+color:#979797;
+
+}.nextDate{
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px;
+letter-spacing: -0.06em;
+text-align: right;
+color:#0055B8;
+
+}
+}
+.after{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    .afterTitle{
+font-size: 14px;
+font-style: normal;
+font-weight: 300;
+line-height: 20px;
+letter-spacing: -0.06em;
+text-align: left;
+color:#979797;
+
+}.afterDate{
+    
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px;
+letter-spacing: -0.06em;
+text-align: right;
+color:#3A3A3A;
+
+}
+    
+}
 `
 const ConfirmBtn = styled.button`
 outline:none;
@@ -90,28 +236,12 @@ line-height: 23px;
 letter-spacing: -0.06em;
 text-align: center;
 `
-const FadeIn = () => keyframes`
-from {
-    opacity:0
-}
-to {
-    opacity:1
-}
-`;
-const Fadeout = () => keyframes`
-from {
-    opacity:1
-}
-to {
 
-    opacity:0
-}
-`;
 const PeriPeriodSelectArea = styled.div`
 display: ${props => props.SlideOpen ? '' : 'none'};
 visibility: ${props => props.SlideOpen ? 'visible' : 'hidden'};
-animation: ${props => props.SlideOpen ? FadeIn : Fadeout} 0.5s ease-in ;
-transition: visibility 0.5s ease-in;
+animation: ${props => props.SlideOpen ? FadeIn : Fadeout} 0.4s ease-in ;
+transition: visibility 0.4s ease-in;
 margin-bottom:10px;
 `
 const FaceIcon = styled.div`
@@ -184,6 +314,8 @@ color:#FCFCFC;
 
 `
 const PeriodSelectorBox = styled.div`
+outline:none;
+cursor: pointer;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -215,7 +347,7 @@ const Layout = styled.div`
 font-family: SpoqaHanSans;
 margin-top:86px;
 width:100%;
-padding:0px 15px;
+padding:0px 16px;
 box-sizing:border-box;
 
 `
