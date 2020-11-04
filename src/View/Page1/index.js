@@ -4,10 +4,13 @@ import sampleImage from "../../Icon/sample.png"
 import addBtnImage from "../../Icon/addBtn.png"
 import Popup from './Popup'
 import { useHistory } from "react-router-dom";
+import Header from '../Header'
 function Page1() {
     const [PopupOpen, setPopupOpen] = useState(false)
     return (
         <Fragment>
+        <Layout>
+        <Header/>
         <Disc>장바구니가 비어있습니다<br/>상품을 추가해주세요</Disc>
         <Item onClick={()=>setPopupOpen(!PopupOpen)}>
         <ThumbImage/>
@@ -27,11 +30,17 @@ function Page1() {
             </BackGroundLayer>
             <Popup PopupOpen={PopupOpen}/>
             </Fragment>
+            </Layout>
         </Fragment>
     )
 }
 
 export default Page1
+const Layout = styled.div`
+width:100%;
+padding:0px 15px;
+box-sizing:border-box;
+`
 const FadeIn = () => keyframes`
 from {
     opacity:0

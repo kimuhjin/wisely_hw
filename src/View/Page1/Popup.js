@@ -9,7 +9,7 @@ function Popup({PopupOpen}) {
     const [colorSelect, setColorSelect] = useState("#1e314a")
     const history = useHistory();
     const onSubmitFunc = ()=>{
-      history.push("/Cart");
+      history.push("/Page2");
   }
     return (
         <Fragment>

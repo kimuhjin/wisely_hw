@@ -1,7 +1,12 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
+import { useHistory } from "react-router-dom";
 
 function OrderDetail() {
+    const history = useHistory();
+const onOrderFunc = ()=>{
+history.push("/Page3");
+}
     return (
         <Fragment>
         <PaymentInfo>
@@ -13,7 +18,7 @@ function OrderDetail() {
         <div>8,900원</div>
         </PriceInfo>
         </PaymentInfo>
-        <ConfirmBtn>주문하기</ConfirmBtn>
+        <ConfirmBtn onClick={onOrderFunc}>주문하기</ConfirmBtn>
         <MoreInfoArea><div className="top">1.5만원 이상 무료 배송</div><div>평일 16시 이전 주문 시 당일 출고</div>
         </MoreInfoArea>
         </Fragment>

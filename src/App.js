@@ -1,9 +1,10 @@
 import React,{ Fragment } from 'react';
 import styled from "styled-components"
 import './App.css';
-import Header from './View/Header';
+// import Header from './View/Header';
 import Page1 from "./View/Page1/"
 import Page2 from "./View/Page2/"
+import Page3 from "./View/Page3/"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 function App() {
   return (
@@ -11,10 +12,11 @@ function App() {
    <Layout>
    <PageViewLayout>
    <BrowserRouter basename={process.env.PUBLIC_URL}>
-   <Header/>
+   
       <Switch>
         <Route exact path="/" component={Page1} />
-        <Route exact path="/Cart" component={Page2} />
+        <Route exact path="/Page2" component={Page2} />
+        <Route exact path="/Page3" component={Page3} />
       </Switch>
     </BrowserRouter>
    </PageViewLayout>
@@ -30,7 +32,7 @@ height:100%;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:0px 15px;
+
 box-sizing:border-box;
 `
 

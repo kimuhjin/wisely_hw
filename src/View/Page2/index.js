@@ -7,6 +7,7 @@ import plusBtn from "../../Icon/plusBtn.png"
 import minusBtn from "../../Icon/minusBtn.png"
 import OrderDetail from './OrderDetail'
 import AdditionalProduct from './AdditionalProduct'
+import Header from '../Header';
 
 function Page2() {
     const [ProductAmount, setProductAmount] = useState(0)
@@ -16,6 +17,7 @@ function Page2() {
     }
     return (
         <Fragment>
+        <Header/>
         <Layout>
         <Item>
         <ThumbImage/>
@@ -125,6 +127,8 @@ flex-direction:column;
 justify-content:flex-start;
 align-items:center;
 margin-top:60px;
+padding:0px 15px;
+box-sizing:border-box;
 `
 const PriceArea = styled.div`
 width:100%;
