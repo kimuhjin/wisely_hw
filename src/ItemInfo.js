@@ -10,6 +10,7 @@ export const Dummy = [{
     price:8900,
     free_ship:true,
     shaver:true,
+    amount:1,
     img_src:a
 },
 {
@@ -19,6 +20,7 @@ export const Dummy = [{
     price:9600,
     free_ship:false,
     shaver:false,
+    amount:1,
     img_src:b
 },
 {
@@ -28,6 +30,7 @@ export const Dummy = [{
     price:4500,
     free_ship:false,
     shaver:false,
+    amount:1,
     img_src:c
 },
 {
@@ -37,5 +40,6 @@ export const Dummy = [{
     price:3900,
     free_ship:false,
     shaver:false,
+    amount:1,
     img_src:d
 }]
