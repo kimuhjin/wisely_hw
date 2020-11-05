@@ -11,7 +11,7 @@ function AdditionalProduct({SelectedItem}) {
     const [PopupOpen, setPopupOpen] = useState(false)
     const [Shaver, setShaver] = useState([])
     const dispatch = useDispatch();
-    
+
     const AddItemFunc = (e)=>{
         if(Number(e.target.value)===Number(1)){
             const getItem = Dummy.filter((data)=>Number(data.id)===Number(e.target.value))
@@ -21,7 +21,6 @@ function AdditionalProduct({SelectedItem}) {
             const getItem = Dummy.filter((data)=>Number(data.id)===Number(e.target.value))
             dispatch(ItemAdd(getItem));
         }
-        
     }
     const filteredNonSelected = Dummy.filter((data) => !SelectedItem.includes(data));
     const RenderAdditionalItem = filteredNonSelected.map((data,index)=>{

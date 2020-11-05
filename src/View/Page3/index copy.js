@@ -15,19 +15,49 @@ function Page3() {
 
 const [HeaderSlideOpen, setHeaderSlideOpen] = useState(false)
 const [CalenderOpen, setCalenderOpen] = useState(false)
-const [RefillPeriod, setRefillPeriod] = useState("8")
+const [SelectPeriod, setSelectPeriod] = useState("")
+const [SlideOpen, setSlideOpen] = useState(false)
+const [SlideTarget, setSlideTarget] = useState("")
 const SelectedItem = useSelector((state) => state.item);
-const SortSelectedItem = SelectedItem.filter((x) => x.id === 2).concat(SelectedItem.filter((x) => x.id !== 2))
-
-
-console.log(RefillPeriod)
-
-const RenderItemPeriod = SortSelectedItem.map((data,index)=>{
+const SlideOpenFunc = (e)=>{
+    setSlideTarget(e.target.value)
+    setSlideOpen(!SlideOpen)
+}
+const RenderItemPeriod = SelectedItem.map((data,index)=>{
     return(
         <Fragment key={index}>
-        <PeriodComponent data={data} RefillPeriod={RefillPeriod} setRefillPeriod={setRefillPeriod}
-        className={`Period${data.id}`}
-        />
+        <PeriodSelectorBox value= {data.id} onClick={SlideOpenFunc}>
+        <div className="title">{data.title} 주기</div>
+        <RightSide>
+        <BestText>
+        <div className="text">BEST</div></BestText>
+        <div className="period">8주에 한 번</div>
+        <DownBtn onClick={()=>setSlideOpen(!SlideOpen)}/>
+        </RightSide>
+        </PeriodSelectorBox>
+{SlideTarget==data.id &&(
+        <PeriPeriodSelectArea SlideOpen={SlideOpen}>
+        <PeriodDetailSelectorBox value="4" onClick={(e)=>setSelectPeriod(e.target.value)} checkClick={SelectPeriod}>
+        <FaceIcon iconUrl={DayOnce_dis}/>
+        <div className="text">4주에 한 번</div>
+        </PeriodDetailSelectorBox>
+
+        <PeriodDetailSelectorBox value="8" onClick={(e)=>setSelectPeriod(e.target.value)} checkClick={SelectPeriod}>
+        <FaceIcon iconUrl={DayMuch_dis}/>
+        <div className="text">8주에 한 번</div>
+        </PeriodDetailSelectorBox>
+
+        <PeriodDetailSelectorBox value="12" onClick={(e)=>setSelectPeriod(e.target.value)} checkClick={SelectPeriod}>
+        <FaceIcon iconUrl={TwoDayOnce_dis}/>
+        <div className="text">12주에 한 번</div>
+        </PeriodDetailSelectorBox>
+
+        <PeriodDetailSelectorBox value="16" onClick={(e)=>setSelectPeriod(e.target.value)} checkClick={SelectPeriod}>
+        <FaceIcon iconUrl={TwoDayOnce_dis}/>
+        <div className="text">16주에 한 번</div>
+        </PeriodDetailSelectorBox>
+        </PeriPeriodSelectArea>
+        )}
         </Fragment>
     )
 })

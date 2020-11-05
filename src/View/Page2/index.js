@@ -28,7 +28,6 @@ function Page2() {
             </Fragment>
         )
     })
-    
     return (
         <Fragment >
         <Header />
