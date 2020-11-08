@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react'
 import styled,{keyframes} from 'styled-components'
-import sampleImage from "../../Icon/면도기세트_네이비.png"
-
 
 function HeaderSlide({HeaderSlideOpen,SelectedItem}) {
     const PriceAmount = SelectedItem.reduce((prev, curr) => prev + (curr.amount*curr.price), 0);

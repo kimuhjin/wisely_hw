@@ -26,7 +26,6 @@ setmonth_(calMonth)
 const prevLast = new Date(calYear, calMonth, 0);
 const thisLast = new Date(calYear, calMonth + 1, 0);
 
-const PLDate = prevLast.getDate();
 const PLDay = prevLast.getDay();
 
 const TLDate = thisLast.getDate();
@@ -72,7 +71,6 @@ setmonth_(calMonth)
 const prevLast = new Date(calYear, calMonth, 0);
 const thisLast = new Date(calYear, calMonth + 1, 0);
 
-const PLDate = prevLast.getDate();
 const PLDay = prevLast.getDay();
 
 const TLDate = thisLast.getDate();
@@ -99,23 +97,12 @@ setDD(value)
 const nextMonth = () => {
     if(Init+6 >Count){
     let date = new Date();
-    let date_today = new Date();
-    
         setCount(Count+1)
         date.setMonth(Count+1);
-    
-    
-const calYear_today = date_today.getFullYear();
-const calMonth_today = date_today.getMonth();
+
 const calYear = date.getFullYear();
 const calMonth = date.getMonth();
-console.log((calYear*100)+(calMonth+1))
-console.log((calYear_today*100)+(calMonth_today+1))
-// if((calYear*100)+(calMonth+7)<(calYear_today*100)+(calMonth_today+1)){
 
-// }
-
-console.log(Count)
 setyear_(calYear)
 setmonth_(calMonth)
 const prevLast = new Date(calYear, calMonth, 0);
@@ -141,9 +128,7 @@ if (PLDay !== 6) {
   }
 dates =  prevDates.concat(thisDates, nextDates);
 let value = [[...dates],[`${calYear},${calMonth+1}`]]
-// setDD(dates)
 setDD(value)
-/////////
 }
 }
 
@@ -159,31 +144,42 @@ const calDay = date.getDate()+1;
 if(`${v[0]},${v[1]}`===`${calYear},${calMonth},${calDay}`){
  return(
             <Fragment key={index}>
-            <Date_Tomorrow value={`${v[0]},${v[1]}`} check={shipDay} onClick = {()=>setShipDay(`${v[0]},${v[1]}`)}>
+            <DateTomorrow value={`${v[0]},${v[1]}`} check={shipDay} onClick = {()=>setShipDay(`${v[0]},${v[1]}`)}>
             <div className="Today">
             <div className="Checked">
             {v[1]}
             </div>
-            </div></Date_Tomorrow>
+            </div></DateTomorrow>
             </Fragment>
             )}
-else if (Number(`${v[0]},${v[1]}`.split(",").join(""))<Number(`${calYear},${calMonth},${calDay}`.split(",").join("")) && v[0][0].join("") ==`${calYear},${calMonth}`){
+else if (Number(`${v[0]},${v[1]}`.split(",").join(""))<Number(`${calYear},${calMonth},${calDay}`.split(",").join("")) && v[0][0].join("") ===`${calYear},${calMonth}`){
     return(<Fragment key={index}>
-        <Date_Non>
+        <DateNon>
         <div className="Checked">
         {v[1]}
         </div>
-        </Date_Non>
+        </DateNon>
         </Fragment>)
 }
-else {
+else if(v[1]!==""){
     return(
         <Fragment key={index}>
-        <Date_ value={`${v[0]},${v[1]}`} check={shipDay} onClick = {()=>setShipDay(`${v[0]},${v[1]}`)}>
+        <DateOn value={`${v[0]},${v[1]}`} check={shipDay} onClick = {()=>setShipDay(`${v[0]},${v[1]}`)}>
         <div className="Checked">
         {v[1]}
         </div>
-        </Date_>
+        </DateOn>
+        </Fragment>
+)
+}
+else if(v[1]===""){
+    return(
+        <Fragment key={index}>
+        <DateOn value={`${v[0]},${v[1]}`} check={shipDay} >
+        <div className="Checked">
+        {v[1]}
+        </div>
+        </DateOn>
         </Fragment>
 )
 }
@@ -206,9 +202,9 @@ else {
         <div className="day">금</div>
         <div className="day">토</div>
         </Weekend>
-        <Dates_>
+        <Dates>
         {renderDates}
-        </Dates_>
+        </Dates>
         </Body>
     </Layout>
         </Fragment>
@@ -216,13 +212,13 @@ else {
 }
 
 export default Calender
-const Dates_ = styled.div`
+const Dates = styled.div`
 width:100%;
 display: flex;
 justify-content:space-between;
 flex-flow: row wrap;
 `
-const Date_Tomorrow = styled.button`
+const DateTomorrow = styled.button`
 padding:0px;
 border:none;
 outline:none;
@@ -263,7 +259,7 @@ background-color:${props=>props.value === props.check ? "#0055B8" : "transparent
 }
 }
 `
-const Date_Non = styled.button`
+const DateNon = styled.button`
 padding:0px;
 outline:none;
 border:none;
@@ -284,7 +280,7 @@ text-align: center;
 color:#CCCCCC;
 `
 
-const Date_ = styled.button`
+const DateOn = styled.button`
 padding:0px;
 outline:none;
 border:none;

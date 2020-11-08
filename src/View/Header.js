@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react'
 import styled from "styled-components"
 import headerIcon from "../Icon/headerIcon.png"
-import shoppingCart from "../Icon/shopping_cart.png"
-import downBtnIcon from "../Icon/downBtn.png"
 function Header() {
     return (
         <Fragment>

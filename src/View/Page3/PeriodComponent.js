@@ -6,8 +6,8 @@ import DayMuch from "../../Icon/하루에 한 번.png"
 import DayMuch_dis from "../../Icon/하루에 한 번-1.png"
 import TwoDayOnce from "../../Icon/2~3일에 한 번.png"
 import TwoDayOnce_dis from "../../Icon/2~3일에 한 번-1.png"
-import { useSelector,useDispatch } from "react-redux";
-import {ItemAdd, ItemEdit} from "../../_actions/item_actions";
+import { useDispatch } from "react-redux";
+import {ItemEdit} from "../../_actions/item_actions";
 
 function PeriodComponent({data,RefillPeriod,setRefillPeriod,SelectedItem}) {
     const dispatch = useDispatch();
@@ -141,15 +141,15 @@ background-position:center;
 const PeriodDetailSelectorBox = styled.button`
 ${props => {
     if (props.id_ !== 2){
-        if (props.checkVisible==props.value) {
+        if (Number(props.checkVisible)===Number(props.value)) {
       return `
       display:flex
     `
-    } else if (props.value==Number(props.checkVisible)*2) {
+    } else if (Number(props.value)===Number(props.checkVisible)*2) {
       return `
       display:flex
     `
-    } else if(props.value==Number(props.checkVisible)*4) {
+    } else if(Number(props.value)===Number(props.checkVisible)*4) {
       return `
       display:flex
     `

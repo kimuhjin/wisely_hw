@@ -58,25 +58,7 @@ const HeaderSlideControl = ()=>{
 }
 
 export default Page3
-const FadeIn = () => keyframes`
-from {
-    transform:translateX(500px);
 
-}
-to {
-    transform:translateX(0px);
-}
-`;
-const Fadeout = () => keyframes`
-from {
-    opacity:1
-    transform:translateY(0px);
-}
-to {
-    transform:translateY(-500px);
-    opacity:0
-}
-`;
 const HeaderFadeIn = () => keyframes`
 from {
     opacity:0
@@ -93,10 +75,7 @@ to {
     opacity:0
 }
 `;
-const Container = styled.div`
-width:100%;
-animation : ${FadeIn} 1s ease-in;
-`
+
 const BackGroundLayer = styled.div`
 position:absolute;
 top:0px;

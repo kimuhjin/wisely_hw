@@ -15,13 +15,12 @@ const calDay = date.getDate()
         history.push("/Page4");
     }
 
-
     return (
         <Fragment>
         <Layout CalenderOpen={CalenderOpen}>
 <Title>결제일을 설정해주세요</Title>
 <Calender setShipDay={setShipDay} shipDay={shipDay}/>
-<ConfirmBtn onClick={onSubmitFunc} check={`${calYear},${calMonth},${calDay}`} value={shipDay}>{`${calYear},${calMonth},${calDay}`===shipDay ? "확인" : <Fragment><div >
+<ConfirmBtn onClick={onSubmitFunc} check={`${calYear},${calMonth},${calDay+1}`} value={shipDay}>{`${calYear},${calMonth},${calDay+1}`===shipDay ? "확인" : <Fragment><div >
 {shipDay.split(",")[1]}월 {shipDay.split(",")[2]}일</div><div className="text">에 결제하기</div></Fragment> }</ConfirmBtn>
         </Layout>
         </Fragment>
@@ -29,7 +28,6 @@ const calDay = date.getDate()
 }
 
 export default CalenderModal
-const ShipText = styled.div``
 const ConfirmBtn = styled.button`
 display:flex;
 justify-content:center;
