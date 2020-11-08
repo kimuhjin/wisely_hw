@@ -11,6 +11,7 @@ import HeaderSlide from './HeaderSlide'
 import CalenderModal from './CalenderModal'
 import { useSelector,useDispatch } from "react-redux";
 import PeriodComponent from './PeriodComponent'
+import CalcDate from "../Page3/CalcDate"
 function Page3() {
 
 const [HeaderSlideOpen, setHeaderSlideOpen] = useState(false)
@@ -19,17 +20,18 @@ const [RefillPeriod, setRefillPeriod] = useState("8")
 const SelectedItem = useSelector((state) => state.item);
 const SortSelectedItem = SelectedItem.filter((x) => x.id === 2).concat(SelectedItem.filter((x) => x.id !== 2))
 
-
-console.log(RefillPeriod)
-
 const RenderItemPeriod = SortSelectedItem.map((data,index)=>{
-    return(
-        <Fragment key={index}>
-        <PeriodComponent data={data} RefillPeriod={RefillPeriod} setRefillPeriod={setRefillPeriod}
-        className={`Period${data.id}`}
-        />
-        </Fragment>
-    )
+    if(data.id !==1){
+        return(
+            <Fragment key={index}>
+            <PeriodComponent data={data} RefillPeriod={RefillPeriod} setRefillPeriod={setRefillPeriod}
+            SelectedItem={SelectedItem}
+            className={`Period${data.id}`}
+            />
+            </Fragment>
+        )
+    }
+    
 })
 const HeaderSlideControl = ()=>{
     setHeaderSlideOpen(!HeaderSlideOpen)
@@ -39,23 +41,14 @@ const HeaderSlideControl = ()=>{
         <ShopHeader HeaderSlideControl={HeaderSlideControl} SelectedItem={SelectedItem}/>
         <Layout>
         <Title>배송 주기를 선택해주세요</Title>
-
+        
         {/* ---------------- */}
         {RenderItemPeriod}
-
+        <CalcDate SelectedItem={SelectedItem}/>
         {/* ---------------- */}
         <ConfirmBtn onClick={()=>setCalenderOpen(!CalenderOpen)}>다음</ConfirmBtn>
         </Layout>
-        <DateInfo>
-        <div className="next">
-        <div className="nextTitle">다음 결제 예정일</div>
-        <div className="nextDate">12월 31일 월요일</div>
-        </div>
-        <div className="after">
-        <div className="afterTitle">이후 결제 예정일</div>
-        <div className="afterDate">3월 31일 수요일</div>
-        </div>
-        </DateInfo>
+        
         <Fragment>
             <BackGroundLayer HeaderSlideOpen={HeaderSlideOpen}>
             <BackGround onClick={HeaderSlideControl}/>
@@ -225,6 +218,7 @@ to {
 const BackGroundLayer = styled.div`
 position:absolute;
 top:0px;
+z-index:9988;
 left:0px;
 width:100%;
 height:100%;
@@ -236,6 +230,7 @@ transition: visibility 0.5s linear;
 `
 const BackGroundLayer_Calender = styled.div`
 position:absolute;
+z-index:9998;
 top:0px;
 left:0px;
 width:100%;

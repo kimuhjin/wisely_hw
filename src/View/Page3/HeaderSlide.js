@@ -21,7 +21,7 @@ function HeaderSlide({HeaderSlideOpen,SelectedItem}) {
         <div className="disc">{data.disc}</div>
         </div>
         <PriceArea>
-        <div className="period">이번만 구매</div>
+        <div className="period">{data.period?`${data.period}주 마다`:`이번만 구매`}</div>
         <div className="price">{(data.price*data.amount).toLocaleString()}원</div>
         </PriceArea>
         </ItemDisc>
@@ -202,7 +202,7 @@ align-items:flex-start;
 position:absolute;
 top:0px;
 left:0px;
-z-index:9998;
+z-index:9997;
 min-height: 200px;
 width: 100%;
 padding:60px 0px 0px 0px;

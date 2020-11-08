@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import styled,{keyframes} from 'styled-components'
 import { useHistory } from "react-router-dom";
+import Calender from './Calender';
 
 
 function CalenderModal({CalenderOpen}) {
@@ -12,6 +13,7 @@ function CalenderModal({CalenderOpen}) {
         <Fragment>
         <Layout CalenderOpen={CalenderOpen}>
 <Title>결제일을 설정해주세요</Title>
+<Calender/>
 <ConfirmBtn onClick={onSubmitFunc}>확인</ConfirmBtn>
         </Layout>
         </Fragment>
@@ -74,7 +76,7 @@ left:0px;
 z-index:9998;
 height:482px;
 width: 100%;
-padding:26px 16px 16px 40px;
+padding:26px 16px 16px 16px;
 background-color:white;
 box-sizing:border-box;
 visibility: ${props => props.CalenderOpen ? 'visible' : 'hidden'};

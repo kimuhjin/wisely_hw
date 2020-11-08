@@ -6,18 +6,36 @@ import DayMuch from "../../Icon/하루에 한 번.png"
 import DayMuch_dis from "../../Icon/하루에 한 번-1.png"
 import TwoDayOnce from "../../Icon/2~3일에 한 번.png"
 import TwoDayOnce_dis from "../../Icon/2~3일에 한 번-1.png"
-function PeriodComponent({data,RefillPeriod,setRefillPeriod}) {
+import { useSelector,useDispatch } from "react-redux";
+import {ItemAdd, ItemEdit} from "../../_actions/item_actions";
+
+function PeriodComponent({data,RefillPeriod,setRefillPeriod,SelectedItem}) {
+    const dispatch = useDispatch();
 useEffect(() => {
     setSelectPeriod(RefillPeriod)
 }, [RefillPeriod])
+
 const [SelectPeriod, setSelectPeriod] = useState(RefillPeriod)
 const [SlideOpen, setSlideOpen] = useState(false)
 
 const ClickPeriodSelectFunc = (e)=>{
-    if(data.id===2){
-        setRefillPeriod(e.target.value)
-    }
     setSelectPeriod(e.target.value)
+    if(Number(data.id)===2){
+        setRefillPeriod(e.target.value)
+            SelectedItem.map((data_)=>{
+                if(Number(data_.id) !==1){
+                    data_.period = Number(e.target.value)
+                    dispatch(ItemEdit(SelectedItem));
+                }
+            })
+    }
+    else if(Number(data.id)!==2){
+        SelectedItem.map((data_)=>{
+            if(Number(data.id)===Number(data_.id))
+            data_.period = Number(e.target.value)
+            dispatch(ItemEdit(SelectedItem));
+        })
+    }
     setSlideOpen(!SlideOpen)
 }
 
@@ -26,8 +44,11 @@ const ClickPeriodSelectFunc = (e)=>{
         <PeriodSelectorBox onClick={()=>setSlideOpen(!SlideOpen)}>
         <div className="title">{data.title} 주기</div>
         <RightSide>
+        {SelectPeriod==="8" &&(
         <BestText>
-        <div className="text">BEST</div></BestText>
+        <div className="text">BEST</div></BestText>)}
+        {SelectPeriod!=="8" &&(
+        <NonBestArea/>)}
 
         <div className="period">{SelectPeriod}주에 한 번</div>
 
@@ -96,6 +117,11 @@ to {
     opacity:0
 }
 `;
+const NonBestArea = styled.div`
+pointer-events:none;
+width: 48px;
+height: 18px;
+`
 const PeriPeriodSelectArea = styled.div`
 display: ${props => props.SlideOpen ? '' : 'none'};
 visibility: ${props => props.SlideOpen ? 'visible' : 'hidden'};

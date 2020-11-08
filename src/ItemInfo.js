@@ -21,6 +21,7 @@ export const Dummy = [{
     free_ship:false,
     shaver:false,
     amount:1,
+    period:8,
     img_src:b
 },
 {
@@ -31,6 +32,7 @@ export const Dummy = [{
     free_ship:false,
     shaver:false,
     amount:1,
+    period:8,
     img_src:c
 },
 {
@@ -41,5 +43,6 @@ export const Dummy = [{
     free_ship:false,
     shaver:false,
     amount:1,
+    period:8,
     img_src:d
 }]
