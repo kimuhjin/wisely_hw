@@ -1,44 +1,64 @@
-import React, { Fragment } from 'react'
+import React, { Fragment,useState } from 'react'
 import styled,{keyframes} from 'styled-components'
 import { useHistory } from "react-router-dom";
 import Calender from './Calender';
 
 
 function CalenderModal({CalenderOpen}) {
+    let date = new Date();
+    const calYear = date.getFullYear();
+const calMonth = date.getMonth()+1;
+const calDay = date.getDate()
+    const [shipDay, setShipDay] = useState(`${calYear},${calMonth},${calDay+1}`)
     const history = useHistory();
     const onSubmitFunc = ()=>{
         history.push("/Page4");
     }
+
+
     return (
         <Fragment>
         <Layout CalenderOpen={CalenderOpen}>
 <Title>결제일을 설정해주세요</Title>
-<Calender/>
-<ConfirmBtn onClick={onSubmitFunc}>확인</ConfirmBtn>
+<Calender setShipDay={setShipDay} shipDay={shipDay}/>
+<ConfirmBtn onClick={onSubmitFunc} check={`${calYear},${calMonth},${calDay}`} value={shipDay}>{`${calYear},${calMonth},${calDay}`===shipDay ? "확인" : <Fragment><div >
+{shipDay.split(",")[1]}월 {shipDay.split(",")[2]}일</div><div className="text">에 결제하기</div></Fragment> }</ConfirmBtn>
         </Layout>
         </Fragment>
     )
 }
 
 export default CalenderModal
-
+const ShipText = styled.div``
 const ConfirmBtn = styled.button`
+display:flex;
+justify-content:center;
+align-items:center;
 outline:none;
 cursor: pointer;
 border:none;
 color:#fff;
-margin:18px auto 20px auto;
+margin:0px auto 0px auto;
 height: 48px;
 width: 100%;
 border-radius: 4px;
 box-sizing:border-box;
-background-color:#CECECE;
+background-color:${props=>props.value===props.check ? "#CECECE" : "#0055B8"};
+box-shadow: ${props=>props.value===props.check ? "" : "0px 2px 4px rgba(0, 0, 0, 0.25)"};
 font-size: 18px;
 font-style: normal;
 font-weight: 400;
 line-height: 23px;
 letter-spacing: -0.06em;
 text-align: center;
+.text{
+font-size: 18px;
+font-style: normal;
+font-weight: 300;
+line-height: 23px;
+letter-spacing: -0.06em;
+text-align: center;
+}
 
 `
 const Title = styled.div`

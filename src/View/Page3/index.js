@@ -7,10 +7,10 @@ import { useSelector } from "react-redux";
 import PeriodComponent from './PeriodComponent'
 import CalcDate from "../Page3/CalcDate"
 function Page3() {
-
 const [HeaderSlideOpen, setHeaderSlideOpen] = useState(false)
 const [CalenderOpen, setCalenderOpen] = useState(false)
 const [RefillPeriod, setRefillPeriod] = useState("8")
+
 const SelectedItem = useSelector((state) => state.item);
 const SortSelectedItem = SelectedItem.filter((x) => x.id === 2).concat(SelectedItem.filter((x) => x.id !== 2))
 
@@ -31,7 +31,6 @@ const HeaderSlideControl = ()=>{
 }
     return (
         <Fragment>
-        
         <ShopHeader HeaderSlideControl={HeaderSlideControl} SelectedItem={SelectedItem}/>
         <Layout>
         <Title>배송 주기를 선택해주세요</Title>
@@ -41,7 +40,6 @@ const HeaderSlideControl = ()=>{
         {/* ---------------- */}
         <ConfirmBtn onClick={()=>setCalenderOpen(!CalenderOpen)}>다음</ConfirmBtn>
         </Layout>
-        
         <Fragment>
             <BackGroundLayer HeaderSlideOpen={HeaderSlideOpen}>
             <BackGround onClick={HeaderSlideControl}/>
