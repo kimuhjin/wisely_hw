@@ -8,7 +8,7 @@ function Calender() {
     }, [])
 let date = new Date();
 let dates = []
-const [DD, setDD] = useState([])
+const [DD, setDD] = useState([[]])
 const [Count, setCount] = useState(0)
 const [year_, setyear_] = useState(0)
 const [month_, setmonth_] = useState(0)
@@ -16,6 +16,7 @@ const renderCalendar = () => {
     /////////
 const calYear = date.getFullYear();
 const calMonth = date.getMonth();
+setCount(calMonth)
 setyear_(calYear)
 setmonth_(calMonth)
 const prevLast = new Date(calYear, calMonth, 0);
@@ -33,31 +34,35 @@ const nextDates = [];
 
 if (PLDay !== 6) {
     for (let i = 0; i < PLDay + 1; i++) {
-      prevDates.unshift(PLDate - i);
+        prevDates.unshift("");
     }
   }
-
   for (let i = 1; i < 7 - TLDay; i++) {
     nextDates.push("");
   }
 dates =  prevDates.concat(thisDates, nextDates);
-setDD(dates)
-/////////
+let value = [[...dates],[`${calYear},${calMonth+1}`]]
+// setDD(dates)
+setDD(value)
+
+console.log(dates)
+console.log(value)
 }
 
-// renderCalendar()
 
-console.log(dates)
 const prevMonth = () => {
-    let date = new Date();
-    setCount(Count-1)
-    date.setMonth(date.getMonth() - Math.abs(Count));
-      /////////
+let date = new Date();
+setCount(Count-1)
+date.setMonth(Count-1);
+
 const calYear = date.getFullYear();
 const calMonth = date.getMonth();
+
+
 setyear_(calYear)
 setmonth_(calMonth)
 const prevLast = new Date(calYear, calMonth, 0);
+
 const thisLast = new Date(calYear, calMonth + 1, 0);
 
 const PLDate = prevLast.getDate();
@@ -72,7 +77,8 @@ const nextDates = [];
 
 if (PLDay !== 6) {
     for (let i = 0; i < PLDay + 1; i++) {
-      prevDates.unshift(PLDate - i);
+    //   prevDates.unshift(PLDate - i);
+    prevDates.unshift("");
     }
   }
 
@@ -80,24 +86,28 @@ if (PLDay !== 6) {
     nextDates.push("");
   }
 dates =  prevDates.concat(thisDates, nextDates);
-console.log(dates)
-setDD(dates)
+
+
+let value = [[...dates],[`${calYear},${calMonth+1}`]]
+// setDD(dates)
+setDD(value)
 /////////
   }
 
-  const nextMonth = () => {
+const nextMonth = () => {
     let date = new Date();
     setCount(Count+1)
-    date.setMonth(date.getMonth() + Count);
+    date.setMonth(Count+1);
      /////////
 const calYear = date.getFullYear();
 const calMonth = date.getMonth();
+// const calMonth = Count;
+
 setyear_(calYear)
 setmonth_(calMonth)
 const prevLast = new Date(calYear, calMonth, 0);
 const thisLast = new Date(calYear, calMonth + 1, 0);
 
-const PLDate = prevLast.getDate();
 const PLDay = prevLast.getDay();
 
 const TLDate = thisLast.getDate();
@@ -109,7 +119,7 @@ const nextDates = [];
 
 if (PLDay !== 6) {
     for (let i = 0; i < PLDay + 1; i++) {
-      prevDates.unshift(PLDate - i);
+      prevDates.unshift("");
     }
   }
 
@@ -117,20 +127,35 @@ if (PLDay !== 6) {
     nextDates.push("");
   }
 dates =  prevDates.concat(thisDates, nextDates);
-console.log(dates)
-setDD(dates)
+let value = [[...dates],[`${calYear},${calMonth+1}`]]
+// setDD(dates)
+setDD(value)
 /////////
   }
-
-let renderDates = DD.map((v)=>{
-    return(
-        <Fragment>
-        <Date_>{v}</Date_>
-        </Fragment>
-    )
+let ss = DD[0].map((v)=>{
+    return [[DD[1]],v]
 })
+console.log(ss)
+let renderDates = ss.map((v,index)=>{
+    const calYear = date.getFullYear();
+const calMonth = date.getMonth()+1;
+const calDay = date.getDate()
+if(`${v[0]},${v[1]}`===`${calYear},${calMonth},${calDay}`){
+ return(
+            <Fragment key={index}>
+            <Date_Today>{v[1]}</Date_Today>
+            </Fragment>
+            )}
+            else{
+    return(
+        <Fragment key={index}>
+        <Date_>{v[1]}</Date_>
+        </Fragment>
+        )
+    
+}
 
-console.log(Count)
+})
 
     return (
         <Fragment>
@@ -142,13 +167,13 @@ console.log(Count)
         </Header>
         <Body>
         <Weekend>
-        <div class="day">일</div>
-        <div class="day">월</div>
-        <div class="day">화</div>
-        <div class="day">수</div>
-        <div class="day">목</div>
-        <div class="day">금</div>
-        <div class="day">토</div>
+        <div className="day">일</div>
+        <div className="day">월</div>
+        <div className="day">화</div>
+        <div className="day">수</div>
+        <div className="day">목</div>
+        <div className="day">금</div>
+        <div className="day">토</div>
         </Weekend>
         <Dates_>
         {renderDates}
@@ -166,6 +191,22 @@ display: flex;
 justify-content:space-between;
 flex-flow: row wrap;
 `
+const Date_Today = styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
+width: calc(100% / 7);
+height:40px;
+box-sizing:border-box;
+text-align:center;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: -0.06em;
+text-align: center;
+color:red;
+`
 const Date_ = styled.div`
 display:flex;
 justify-content:center;
@@ -181,7 +222,6 @@ line-height: 20px;
 letter-spacing: -0.06em;
 text-align: center;
 color:#3A3A3A;
-
 `
 const Weekend = styled.div`
 margin-top:30px;

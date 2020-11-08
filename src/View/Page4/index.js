@@ -3,6 +3,55 @@ import styled from 'styled-components'
 import sampleImage from "../../Icon/면도기세트_네이비.png"
 import Header from '../Header';
 function Page4() {
+    const tomorrow = new Date()
+    tomorrow.setDate(tomorrow.getDate()+1)
+    const tom = String(tomorrow).split(" ")
+    function get_month(date) {
+        if(date==="Jan"){
+            return "1"
+        }
+        else if(date==="Feb"){
+            return "2"
+        }
+        else if(date==="Mar"){
+            return "3"
+        }
+        else if(date==="Apr"){
+            return "4"
+        }
+        else if(date==="May"){
+            return "5"
+        }
+        else if(date==="Jun"){
+            return "6"
+        }
+        else if(date==="Jul"){
+            return "7"
+        }
+        else if(date==="Aug"){
+            return "8"
+        }
+        else if(date==="Sep"){
+            return "9"
+        }
+        else if(date==="Oct"){
+            return "10"
+        }
+        else if(date==="Nov"){
+            return "11"
+        }
+        else if(date==="Dec"){
+            return "12"
+        }
+    }
+    function get_day(date) {
+        const day = date.split("")
+        if(day[0]==="0"){
+    return day[1]
+        }else{
+            return day.join("")
+        }
+    }
     return (
         <Fragment>
         <Header/>
@@ -10,7 +59,7 @@ function Page4() {
 
         <ShippingInfo>
         <div className="title">배송준비중</div>
-        <div className="date">11월 5일</div>
+        <div className="date">{get_month(tom[1])}월 {get_day(tom[2])}일</div>
         </ShippingInfo>
         <OrderTitle>주문상품정보</OrderTitle>
         <Item>

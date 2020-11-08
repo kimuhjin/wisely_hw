@@ -17,7 +17,7 @@ function get_week(date) {
     else if(date==="Mon"){
         return "월"
     }
-    else if(date==="Tus"){
+    else if(date==="Tue"){
         return "화"
     }
     else if(date==="Wed"){
