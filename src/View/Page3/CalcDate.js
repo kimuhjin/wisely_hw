@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import styled from "styled-components"
 function CalcDate({SelectedItem}) {
     const periodData = SelectedItem.filter((data)=>Number(data.id)===2)[0] ? SelectedItem.filter((data)=>Number(data.id)===2)[0].period : SelectedItem.filter((data)=>Number(data.id)!==2)[0].period
-    console.log(periodData)
+    
 const tomorrow = new Date()
 const calcD = new Date()
 tomorrow.setDate(tomorrow.getDate()+1)
@@ -144,7 +144,6 @@ text-align: left;
 color:#979797;
 
 }.afterDate{
-    
 font-size: 16px;
 font-style: normal;
 font-weight: 400;

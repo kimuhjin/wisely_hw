@@ -14,7 +14,7 @@ const [Init, setInit] = useState(0)
 const [year_, setyear_] = useState(0)
 const [month_, setmonth_] = useState(0)
 
-console.log("a"+Init)
+
 const renderCalendar = () => {
     /////////
 const calYear = date.getFullYear();
@@ -53,18 +53,11 @@ setDD(value)
 const prevMonth = () => {
     if(Count>Init-1){
     let date = new Date();
-let date_today = new Date();
     setCount(Count-1)
     date.setMonth(Count-1);
 
 const calYear = date.getFullYear();
 const calMonth = date.getMonth();
-const calYear_today = date_today.getFullYear();
-const calMonth_today = date_today.getMonth();
-    if((calYear_today*100)+(calMonth_today+1)<(calYear*100)+(calMonth+1)){
-        console.log("bog")
-    }
-
 
 setyear_(calYear)
 setmonth_(calMonth)
