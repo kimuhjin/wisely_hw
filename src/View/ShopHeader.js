@@ -81,7 +81,7 @@ background-color:#fff;
 
 const ShoppingCartIcon = styled.div`
 min-height: 28px;
-min-width: 30.333332061767578px;
+min-width: 31px;
 background-image:url(${shoppingCart});
 background-repeat:no-repeat;
 background-size:100% auto;
