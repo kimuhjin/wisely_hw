@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/wisely_hw/static/css/main.ab7136cd.chunk.css",
+    "main.js": "/wisely_hw/static/js/main.567eb9d5.chunk.js",
+    "main.js.map": "/wisely_hw/static/js/main.567eb9d5.chunk.js.map",
+    "runtime-main.js": "/wisely_hw/static/js/runtime-main.15fda014.js",
+    "runtime-main.js.map": "/wisely_hw/static/js/runtime-main.15fda014.js.map",
+    "static/js/2.9252e29f.chunk.js": "/wisely_hw/static/js/2.9252e29f.chunk.js",
+    "static/js/2.9252e29f.chunk.js.map": "/wisely_hw/static/js/2.9252e29f.chunk.js.map",
+    "static/js/3.9312299e.chunk.js": "/wisely_hw/static/js/3.9312299e.chunk.js",
+    "static/js/3.9312299e.chunk.js.map": "/wisely_hw/static/js/3.9312299e.chunk.js.map",
+    "index.html": "/wisely_hw/index.html",
+    "static/css/main.ab7136cd.chunk.css.map": "/wisely_hw/static/css/main.ab7136cd.chunk.css.map",
+    "static/js/2.9252e29f.chunk.js.LICENSE.txt": "/wisely_hw/static/js/2.9252e29f.chunk.js.LICENSE.txt",
+    "static/media/shaver_blue.aa8c6c5d.png": "/wisely_hw/static/media/shaver_blue.aa8c6c5d.png",
+    "static/media/shaver_gray.1ddccd23.png": "/wisely_hw/static/media/shaver_gray.1ddccd23.png",
+    "static/media/shaver_navy.e434e83b.png": "/wisely_hw/static/media/shaver_navy.e434e83b.png",
+    "static/media/리필면도날.8fcf89ca.png": "/wisely_hw/static/media/리필면도날.8fcf89ca.png",
+    "static/media/면도기세트_네이비.7208fc5b.png": "/wisely_hw/static/media/면도기세트_네이비.7208fc5b.png",
+    "static/media/스탠다드쉐이빙젤.bce5ebf4.png": "/wisely_hw/static/media/스탠다드쉐이빙젤.bce5ebf4.png",
+    "static/media/애프터쉐이브.62f75829.png": "/wisely_hw/static/media/애프터쉐이브.62f75829.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.15fda014.js",
+    "static/js/2.9252e29f.chunk.js",
+    "static/css/main.ab7136cd.chunk.css",
+    "static/js/main.567eb9d5.chunk.js"
+  ]
+}
