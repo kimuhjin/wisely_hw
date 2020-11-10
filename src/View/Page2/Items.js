@@ -55,7 +55,7 @@ function Items({data,onDelFunc}) {
         </AmountSelectorBox>
         </PriceArea>
         </ItemDisc>
-        <CloseBtn value={data.id} onClick={onDelFunc}/>
+        <CloseBtn value={data.id} onClick={(e)=>{setProductAmount(1);onDelFunc(e);}}/>
         </Item>
         </Fragment>
     )
