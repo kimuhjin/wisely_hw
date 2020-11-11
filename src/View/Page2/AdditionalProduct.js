@@ -107,7 +107,7 @@ cursor: pointer;
 display:flex;
 justify-content:flex-start;
 align-items:center;
-font-family: SpoqaHanSans;
+/* font-family: SpoqaHanSans; */
 margin-bottom:12px;
 height: 108px;
 width: 100%;

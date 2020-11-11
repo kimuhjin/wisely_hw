@@ -182,7 +182,6 @@ background-position:center;
 `
 const Disc = styled.div`
 margin:118px 0px 58px 0px;
-font-family: SpoqaHanSans;
 font-size: 18px;
 font-style: normal;
 font-weight: 300;
@@ -197,7 +196,6 @@ cursor: pointer;
 display:flex;
 justify-content:flex-start;
 align-items:center;
-font-family: SpoqaHanSans;
 margin-bottom:12px;
 height: 108px;
 width: 100%;

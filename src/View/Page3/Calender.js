@@ -366,7 +366,7 @@ justify-content:space-between;
 align-items:center;
 `
 const Layout = styled.div`
-font-family: SpoqaHanSans;
+/* font-family: SpoqaHanSans; */
 margin-top:20px;
 width:100%;
 height:336px;

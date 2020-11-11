@@ -215,7 +215,6 @@ align-items:center;
 background-color:#0F5783;
 border-radius: 2px;
 .text{
-margin-top:3px;
 font-size: 12px;
 font-style: normal;
 font-weight: 400;

@@ -49,7 +49,7 @@ padding:0px 16px;
 box-sizing:border-box;
 `
 const Layout = styled.div`
-font-family: SpoqaHanSans;
+/* font-family: SpoqaHanSans; */
 width:100%;
 display:flex;
 flex-direction:column;

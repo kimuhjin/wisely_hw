@@ -83,7 +83,7 @@ to {
 }
 `;
 const Layout = styled.div`
-font-family: SpoqaHanSans;
+/* font-family: SpoqaHanSans; */
 display:flex;
 flex-direction:column;
 justify-content:space-between;

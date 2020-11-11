@@ -125,7 +125,7 @@ text-align: center;
 `
 
 const Layout = styled.div`
-font-family: SpoqaHanSans;
+/* font-family: SpoqaHanSans; */
 margin-top:86px;
 width:100%;
 padding:0px 16px;

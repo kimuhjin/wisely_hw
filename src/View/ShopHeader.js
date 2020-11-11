@@ -47,7 +47,7 @@ margin-left:16px;
 display:flex;
 justify-content:center;
 align-items:center;
-font-family: SpoqaHanSans;
+/* font-family: SpoqaHanSans; */
 font-style: normal;
 letter-spacing: -0.025em;
 .won{
@@ -87,7 +87,6 @@ background-repeat:no-repeat;
 background-size:100% auto;
 background-position:center;
 .amount{
-    font-family: SpoqaHanSans;
 font-size: 12px;
 font-style: normal;
 font-weight: 400;

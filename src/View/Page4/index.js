@@ -181,7 +181,7 @@ cursor: pointer;
 display:flex;
 justify-content:flex-start;
 align-items:center;
-font-family: SpoqaHanSans;
+/* font-family: SpoqaHanSans; */
 margin-bottom:12px;
 height: 120px;
 width: 100%;
@@ -272,7 +272,7 @@ color:#979797;
 }
 `
 const Layout = styled.div`
-font-family: SpoqaHanSans;
+/* font-family: SpoqaHanSans; */
 width:100%;
 display:flex;
 flex-direction:column;

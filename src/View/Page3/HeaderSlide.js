@@ -110,7 +110,7 @@ cursor: pointer;
 display:flex;
 justify-content:flex-start;
 align-items:center;
-font-family: SpoqaHanSans;
+/* font-family: SpoqaHanSans; */
 margin-bottom:12px;
 height: 120px;
 width: 100%;
@@ -192,7 +192,7 @@ to {
 }
 `;
 const Layout = styled.div`
-font-family: SpoqaHanSans;
+/* font-family: SpoqaHanSans; */
 display:flex;
 flex-direction:column;
 justify-content:flex-start;
