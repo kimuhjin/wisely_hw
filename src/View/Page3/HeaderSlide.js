@@ -199,10 +199,10 @@ justify-content:flex-start;
 align-items:flex-start;
 position:absolute;
 top:0px;
-left:0px;
+
 z-index:9997;
 min-height: 200px;
-width: 100%;
+width: 414px;
 padding:60px 0px 0px 0px;
 background-color:white;
 box-sizing:border-box;

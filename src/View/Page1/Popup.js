@@ -179,12 +179,13 @@ justify-content:flex-start;
 align-items:flex-start;
 position:fixed;
 bottom:0px;
-left:0px;
 z-index:9999;
 height: 476px;
-width: 100%;
+width:414px;
 background-color:white;
 box-sizing:border-box;
+/* margin-left:auto;*/
+/* margin-right:300px; */
 .title{
 margin-left: 16px;
 margin-top: 24px;

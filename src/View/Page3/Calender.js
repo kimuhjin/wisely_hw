@@ -370,7 +370,7 @@ font-family: SpoqaHanSans;
 margin-top:20px;
 width:100%;
 height:336px;
-padding:0px 34px;
+padding:0px 24px;
 box-sizing:border-box;
 min-height:100px;
 `

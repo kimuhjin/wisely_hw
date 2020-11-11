@@ -80,8 +80,7 @@ const BackGroundLayer = styled.div`
 position:absolute;
 top:0px;
 z-index:9988;
-left:0px;
-width:100%;
+width: 414px;;
 height:100%;
 opacity:0.5;
 background-color: #808080;
@@ -93,8 +92,7 @@ const BackGroundLayer_Calender = styled.div`
 position:absolute;
 z-index:9998;
 top:0px;
-left:0px;
-width:100%;
+width:414px;
 height:100%;
 opacity:0.5;
 background-color: #808080;

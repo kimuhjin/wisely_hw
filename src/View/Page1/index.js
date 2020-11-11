@@ -46,7 +46,9 @@ function Page1() {
         <Layout>
         <Header/>
         <Disc>장바구니가 비어있습니다<br/>상품을 추가해주세요</Disc>
+        <ItemLayout>
         {RenderItem}
+        </ItemLayout>
             <Fragment>
             <BackGroundLayer PopupOpen={PopupOpen}>
             <BackGround onClick={()=>setPopupOpen(!PopupOpen)}/>
@@ -59,11 +61,17 @@ function Page1() {
 }
 
 export default Page1
+const ItemLayout = styled.div`
+width:100%;
+padding:0px 16px;
+box-sizing:border-box;
+`
 const Layout = styled.div`
 width:100%;
 min-height:620px;
-padding:0px 16px;
+padding:0px;
 box-sizing:border-box;
+background-color:#fff;
 `
 const FadeIn = () => keyframes`
 from {
@@ -82,11 +90,14 @@ to {
 }
 `;
 const BackGroundLayer = styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
 position:absolute;
 z-index:9998;
 bottom:0px;
-left:0px;
-width:100%;
+/* left:0px; */
+width:414px;
 height:100%;
 opacity:0.5;
 background-color: #808080;

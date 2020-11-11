@@ -93,6 +93,6 @@ color: #979797;
 const PaymentInfo = styled.div`
 width:100%;
 margin-top:24px;
-padding:0px 12px;
+padding:0px 16px;
 box-sizing:border-box;
 `

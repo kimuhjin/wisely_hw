@@ -32,7 +32,9 @@ function Page2() {
         <Fragment >
         <Header />
         <Layout>
+        <ItemLayout>
         {RenderItem}
+        </ItemLayout>
         <OrderDetail SelectedItem={SelectedItem}/>
         <AdditionalProduct SelectedItem={SelectedItem} />
         </Layout>
@@ -41,15 +43,19 @@ function Page2() {
 }
 
 export default Page2
-
+const ItemLayout = styled.div`
+width:100%;
+padding:0px 16px;
+box-sizing:border-box;
+`
 const Layout = styled.div`
 font-family: SpoqaHanSans;
 width:100%;
 display:flex;
 flex-direction:column;
 justify-content:flex-start;
-align-items:center;
+align-items:flex-start;
 margin-top:60px;
-padding:0px 16px;
+padding:0px;
 box-sizing:border-box;
 `

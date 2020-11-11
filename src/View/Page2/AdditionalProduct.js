@@ -82,8 +82,7 @@ const BackGroundLayer = styled.div`
 position:absolute;
 z-index:9998;
 bottom:0px;
-left:0px;
-width:100%;
+width:414px;
 height:100%;
 opacity:0.5;
 background-color: #808080;
@@ -98,6 +97,8 @@ height:100%;
 const ItemContainer = styled.div`
 margin-top:18px;
 width:100%;
+padding:0px 16px;
+box-sizing:border-box;
 `
 const Item = styled.button`
 background-color:transparent;

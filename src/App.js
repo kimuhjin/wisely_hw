@@ -1,7 +1,7 @@
 import React,{ Fragment } from 'react';
 import styled from "styled-components"
 import './App.css';
-// import Header from './View/Header';
+import IphoneImage from "./Icon/IPhone6.png"
 import Page1 from "./View/Page1/"
 import Page2 from "./View/Page2/"
 import Page3 from "./View/Page3/"
@@ -11,6 +11,7 @@ import ScrollToTop from './ScrollToTop';
 function App() {
   return (
    <Fragment>
+   <BG>
    <Layout>
    <PageViewLayout>
    <BrowserRouter basename={process.env.PUBLIC_URL}>
@@ -24,24 +25,32 @@ function App() {
     </BrowserRouter>
    </PageViewLayout>
    </Layout>
+   </BG>
    </Fragment>
   );
 }
 
 export default App;
-const Layout = styled.div`
+const BG = styled.div`
 width:100%;
 height:100%;
+background-color:black;
+`
+const Layout = styled.div`
+max-width:414px;
+height:100%;
 display:flex;
-justify-content:center;
-align-items:center;
-
+justify-content:flex-start;
+align-items:flex-start;
+margin: 0 auto;
 box-sizing:border-box;
+background-color:#fff;
+overflow:scroll;
 `
 
 const PageViewLayout = styled.div`
 width:100%;
-max-width:414px;
+/* max-width:414px; */
 box-sizing:border-box;
 
 `
