@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/wisely_hw/static/css/main.aa620996.chunk.css",
-    "main.js": "/wisely_hw/static/js/main.cda8b1a9.chunk.js",
-    "main.js.map": "/wisely_hw/static/js/main.cda8b1a9.chunk.js.map",
+    "main.css": "/wisely_hw/static/css/main.8e048f27.chunk.css",
+    "main.js": "/wisely_hw/static/js/main.e9b577b3.chunk.js",
+    "main.js.map": "/wisely_hw/static/js/main.e9b577b3.chunk.js.map",
     "runtime-main.js": "/wisely_hw/static/js/runtime-main.15fda014.js",
     "runtime-main.js.map": "/wisely_hw/static/js/runtime-main.15fda014.js.map",
     "static/js/2.9252e29f.chunk.js": "/wisely_hw/static/js/2.9252e29f.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.9312299e.chunk.js": "/wisely_hw/static/js/3.9312299e.chunk.js",
     "static/js/3.9312299e.chunk.js.map": "/wisely_hw/static/js/3.9312299e.chunk.js.map",
     "index.html": "/wisely_hw/index.html",
-    "static/css/main.aa620996.chunk.css.map": "/wisely_hw/static/css/main.aa620996.chunk.css.map",
+    "static/css/main.8e048f27.chunk.css.map": "/wisely_hw/static/css/main.8e048f27.chunk.css.map",
     "static/js/2.9252e29f.chunk.js.LICENSE.txt": "/wisely_hw/static/js/2.9252e29f.chunk.js.LICENSE.txt",
     "static/media/IPhone6.78fe8382.png": "/wisely_hw/static/media/IPhone6.78fe8382.png",
     "static/media/shaver_blue.aa8c6c5d.png": "/wisely_hw/static/media/shaver_blue.aa8c6c5d.png",
@@ -24,7 +24,7 @@
   "entrypoints": [
     "static/js/runtime-main.15fda014.js",
     "static/js/2.9252e29f.chunk.js",
-    "static/css/main.aa620996.chunk.css",
-    "static/js/main.cda8b1a9.chunk.js"
+    "static/css/main.8e048f27.chunk.css",
+    "static/js/main.e9b577b3.chunk.js"
   ]
 }
