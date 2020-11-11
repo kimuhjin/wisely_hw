@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/wisely_hw/static/css/main.8e048f27.chunk.css",
-    "main.js": "/wisely_hw/static/js/main.e9b577b3.chunk.js",
-    "main.js.map": "/wisely_hw/static/js/main.e9b577b3.chunk.js.map",
+    "main.js": "/wisely_hw/static/js/main.60b8d7ce.chunk.js",
+    "main.js.map": "/wisely_hw/static/js/main.60b8d7ce.chunk.js.map",
     "runtime-main.js": "/wisely_hw/static/js/runtime-main.15fda014.js",
     "runtime-main.js.map": "/wisely_hw/static/js/runtime-main.15fda014.js.map",
     "static/js/2.9252e29f.chunk.js": "/wisely_hw/static/js/2.9252e29f.chunk.js",
@@ -25,6 +25,6 @@
     "static/js/runtime-main.15fda014.js",
     "static/js/2.9252e29f.chunk.js",
     "static/css/main.8e048f27.chunk.css",
-    "static/js/main.e9b577b3.chunk.js"
+    "static/js/main.60b8d7ce.chunk.js"
   ]
 }
