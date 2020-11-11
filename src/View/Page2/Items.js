@@ -126,7 +126,6 @@ background-size:100% auto;
 background-position:center;
 }
 .number{
-    padding-top:2px;
 display:flex;
 justify-content:center;
 align-items:center;
