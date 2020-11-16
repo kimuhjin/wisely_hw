@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/wisely_hw/static/css/main.8e048f27.chunk.css",
-    "main.js": "/wisely_hw/static/js/main.60b8d7ce.chunk.js",
-    "main.js.map": "/wisely_hw/static/js/main.60b8d7ce.chunk.js.map",
+    "main.js": "/wisely_hw/static/js/main.f8bd020c.chunk.js",
+    "main.js.map": "/wisely_hw/static/js/main.f8bd020c.chunk.js.map",
     "runtime-main.js": "/wisely_hw/static/js/runtime-main.15fda014.js",
     "runtime-main.js.map": "/wisely_hw/static/js/runtime-main.15fda014.js.map",
-    "static/js/2.9252e29f.chunk.js": "/wisely_hw/static/js/2.9252e29f.chunk.js",
-    "static/js/2.9252e29f.chunk.js.map": "/wisely_hw/static/js/2.9252e29f.chunk.js.map",
+    "static/js/2.426ca8a1.chunk.js": "/wisely_hw/static/js/2.426ca8a1.chunk.js",
+    "static/js/2.426ca8a1.chunk.js.map": "/wisely_hw/static/js/2.426ca8a1.chunk.js.map",
     "static/js/3.9312299e.chunk.js": "/wisely_hw/static/js/3.9312299e.chunk.js",
     "static/js/3.9312299e.chunk.js.map": "/wisely_hw/static/js/3.9312299e.chunk.js.map",
     "index.html": "/wisely_hw/index.html",
     "static/css/main.8e048f27.chunk.css.map": "/wisely_hw/static/css/main.8e048f27.chunk.css.map",
-    "static/js/2.9252e29f.chunk.js.LICENSE.txt": "/wisely_hw/static/js/2.9252e29f.chunk.js.LICENSE.txt",
+    "static/js/2.426ca8a1.chunk.js.LICENSE.txt": "/wisely_hw/static/js/2.426ca8a1.chunk.js.LICENSE.txt",
     "static/media/IPhone6.78fe8382.png": "/wisely_hw/static/media/IPhone6.78fe8382.png",
     "static/media/shaver_blue.aa8c6c5d.png": "/wisely_hw/static/media/shaver_blue.aa8c6c5d.png",
     "static/media/shaver_gray.1ddccd23.png": "/wisely_hw/static/media/shaver_gray.1ddccd23.png",
@@ -23,8 +23,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.15fda014.js",
-    "static/js/2.9252e29f.chunk.js",
+    "static/js/2.426ca8a1.chunk.js",
     "static/css/main.8e048f27.chunk.css",
-    "static/js/main.60b8d7ce.chunk.js"
+    "static/js/main.f8bd020c.chunk.js"
   ]
 }
