@@ -97,6 +97,7 @@ justify-content:space-between;
 align-items:center;
 `
 const SelectBtnChoose = styled.button`
+cursor: pointer;
 outline:none;
 background-color:transparent;
 padding:0px;
@@ -132,6 +133,8 @@ background-color:#1E314A;
 border-radius:50%;
 `
 const ConfirmBtn = styled.button`
+cursor: pointer;
+outline:none;
 border:none;
 color:#fff;
 margin:18px auto 20px auto;

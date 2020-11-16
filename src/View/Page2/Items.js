@@ -3,12 +3,28 @@ import styled from 'styled-components'
 import closeBtn from "../../Icon/closeBtn.png"
 import plusBtn from "../../Icon/plusBtn.png"
 import minusBtn from "../../Icon/minusBtn.png"
+import { useHistory } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
 import {ItemEdit} from "../../_actions/item_actions";
-function Items({data,onDelFunc}) {
+import {ItemDel} from "../../_actions/item_actions";
+function Items({data}) {
     const [ProductAmount, setProductAmount] = useState(1)
     const dispatch = useDispatch();
+    const history = useHistory();
     const SelectedItem = useSelector((state) => state.item);
+    const onDelFunc = (e)=>{
+        if(SelectedItem.length===1){
+            history.push("/");
+        }
+        SelectedItem.map((data_s)=>{
+            if(Number(data_s.id) === Number(e.target.value)){
+                data_s.amount = 1
+            }})
+            const setData = new Set([...SelectedItem])
+            dispatch(ItemEdit([...setData]));
+        let delItem = [...SelectedItem].filter((data)=>Number(data.id)!==Number(e.target.value))
+        dispatch(ItemDel(delItem));
+    }
     const AddItemFunc = (e)=>{
         setProductAmount(ProductAmount+1)
     SelectedItem.map((data_s)=>{
@@ -63,6 +79,7 @@ function Items({data,onDelFunc}) {
 
 export default Items
 const CloseBtn = styled.button`
+cursor: pointer;
 border:none;
 background-color:transparent;
 outline:none;
