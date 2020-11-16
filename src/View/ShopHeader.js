@@ -93,8 +93,12 @@ font-weight: 400;
 line-height: 12px;
 letter-spacing: -0.04em;
 position:relative;
-top:3px;
-left:17px;
+top:2px;
+left:12px;
+width:16px;
+display:flex;
+justify-content:center;
+align-items:center;
 color:#FFC01E;
 }
 `
